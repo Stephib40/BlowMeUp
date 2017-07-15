@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlowMeUp
 {
-	class DisplayBoard //will allow up to a 5x5 minefield. 
+	public class DisplayBoard //will allow up to a 5x5 minefield. 
 	{//build method for the
 		
 		
-		DisplayBoard() { }
-		public void Display(string[,] builtArray){
+		public DisplayBoard() { }
+		public string [,] Display(string[,] builtArray){
 		//pass the array that is full of zeros and pass it the indexs
 		for (int i = 0; i<builtArray.GetLength(0);i++)
             {
@@ -22,6 +22,7 @@ namespace BlowMeUp
 					Console.Write("|" + builtArray[i,j]);
 				}
 			}
+			return builtArray;
 		}
 	}	
 }

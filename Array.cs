@@ -11,8 +11,8 @@ namespace BlowMeUp
 		int length;
 		int width;
 
-		//string[,] board = new string[5, 5];
-		//for(int i = 0; i < board.GetLength(0); i++)
+		string[,] board = new string[5, 5];
+		//for(int i = 0; i<board.GetLength(0); i++)
 		public BuildArray(int width, int length)
 		{
 			this.length = length;//sets the local length to the passed length
