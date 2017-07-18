@@ -162,18 +162,13 @@ namespace BlowUp
             int x = zeroLists[0];
             int y = zeroLists[1];
             if ((board[x, y] > 0) && (board[x, y] < 10))
-            {
+            {// checks to see if square is a number and just reveals it
                 board[x, y] += 10;
             }
             else if (board[x, y] > 99)
-            {
+            {// for testing see if bombs work
                 Console.WriteLine("BOOM!");
             }
-            //if (zeroLists.Count == 0)
-            //{
-            //    done = true;
-
-            //}
             else
             {
                 while (!done)
@@ -184,21 +179,19 @@ namespace BlowUp
                     zeroLists.Remove(i);
                     zeroLists.Remove(j);
                     // If we're near an edge we're off the player board and don't have to worry about it.
-                    string whereAt = BoardCases(board, i, j);
 
-                    //if (board[i, j] > 100)
-                    //{
-                    //    done = true;
-                    //}
+                    string whereAt = BoardCases(board, i, j);
                     if (board[i, j] < 10)
                     {
                         board[i, j] += 10;
                         //Anything 10 and over but less than 100 is a revealed square on the player board
+                        // Ignore it and move on
                         // What we're checking here is if the spot has already been revealed
                     }
                     if (whereAt == "m")
                     {// if we aren't on an edge or a corner look for 0's in the 8 squares surrounding 
-                     // the chosen square
+                     // the chosen square 
+                     //The next section reveals them
                         if (board[(i - 1), (j - 1)] > 0 && (board[(i - 1), (j - 1)] < 10))
                         {
                             board[(i - 1), (j - 1)] += 10;
@@ -207,7 +200,6 @@ namespace BlowUp
                         {
                             board[(i - 1), j] += 10;
                         }
-
                         if (board[(i - 1), (j + 1)] > 0 && (board[(i - 1), (j + 1)] < 10))
                         {
                             board[(i - 1), (j + 1)] += 10;
@@ -232,6 +224,9 @@ namespace BlowUp
                         {
                             board[(i + 1), (j + 1)] += 10;
                         }
+
+                        // This is the section where is finds the 0's and adds them to the list of 0's
+
                         if ((board[(i - 1), (j - 1)] == 0)) // one the top left
                         {
                             zeroLists.Add((i - 1));
@@ -274,7 +269,7 @@ namespace BlowUp
                         }
                     }
                     else
-                    {// at the top we found out if the square we were looking at was on an edge
+                    {// at the top we found out if the square we were looking at was on an edge of the board
                      //this tells the method to ignore those
 
                         zeroLists.Remove(i);
