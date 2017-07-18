@@ -143,25 +143,14 @@ namespace BlowUp
         }
         public void PrintBoard(int[,] board)
         { // Prints the back end board
-            for (int i = 0; i < board.GetLength(0); i++)
+            for (int i = 1; i < (board.GetLength(0)-1); i++)
             {
-                for (int j = 0; j < board.GetLength(1); j++)
+                for (int j = 1; j < (board.GetLength(1)-1); j++)
                 {
-                    if ((board[i, j]) < 10)
-                    {
-                        Console.Write(board[i, j] + "   ");
-                    }
-                    else if ((board[i, j] > 10) && (board[i, j] < 20))
-                    {
-                        Console.Write(board[i, j] + " ");
-                    }
-                    else
-                    {
-                        Console.Write(board[i, j] + " ");
-                    }
-
+                        Console.Write(board[i, j] + "\t");
+                 
                 }
-                Console.WriteLine();
+                Console.WriteLine("\n");
             }
         }
 
