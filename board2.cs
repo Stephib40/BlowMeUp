@@ -21,22 +21,22 @@ namespace BlowUp
           * so that when it comes time to choose a play square
           * the user can never choose something outside the array
          */
-            for (int i =0;i< board.GetLength(0); i++)
+            for (int i =1;i< board.GetLength(0); i++)
             {
-                board[0, i] = 10;
+                board[1, i] = 10;
                 board[((board.GetLength(0) - 1)), i] = 10;
             }
-            for (int j = 0; j < board.GetLength(1); j++)
+            for (int j = 1; j < board.GetLength(1); j++)
             {
-                board[j, 0] = 10;
+                board[j, 1] = 10;
                 board[j, ((board.GetLength(1) - 1))] = 10;
             }
             int x = board.GetLength(0) - 1;
             int y = board.GetLength(1) - 1;
             while (numMines != 0) //While there are mines left to place
             {// go to a random spot on the board
-                int index1 = n.Next(2, x);
-                int index2 = n.Next(2, y);
+                int index1 = n.Next(1, x);
+                int index2 = n.Next(1, y);
                 if (board[index1, index2] == 0)
                 {/* and put a mine there. Because of the way the random numbers are generated
                  * you will never put a mine in an edge or a corner of the back end board
